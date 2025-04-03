@@ -14,3 +14,10 @@
 * logger.py
 * exception.py
 * utils.py
+
+### Step 3:
+* Notebook Folder
+* data
+* EDA.ipynb
+* Model_Training.ipynb
+
