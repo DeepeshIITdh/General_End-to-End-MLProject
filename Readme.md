@@ -21,3 +21,8 @@
 * EDA.ipynb
 * Model_Training.ipynb
 
+### Step 4:
+* connecting exception and logger with components
+* components folder config
+* utils.py utilize
+
