@@ -54,5 +54,6 @@ if __name__ == "__main__":
     train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_path, test_path)
 
     model_trainer = ModelTrainer()
-    print(model_trainer.initiate_model_trainer(train_arr, test_arr))
+    r2, model = model_trainer.initiate_model_trainer(train_arr, test_arr)
+    print(f"{model} is the best model with r2_score: {r2}")
             

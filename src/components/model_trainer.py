@@ -40,12 +40,32 @@ class ModelTrainer:
                 "AdaBoost Regressor": AdaBoostRegressor()
             }
 
+            # this should for all models
+            params = {
+                "Linear Regression" : {}, 
+                "Lasso" : {},
+                "Ridge" : {}, 
+                "K-Neighbors Regressor" : {},
+                "Decision Tree": {
+                    # 'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    # 'splitter':['best','random'],
+                    # 'max_features':['sqrt','log2'],
+                },
+                "Random Forest Regressor":{
+                    # 'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    # 'max_features':['sqrt','log2',None],
+                    'n_estimators': [32,64,128]
+                },
+                "AdaBoost Regressor" : {}
+            }
+
             model_report:dict = evaluate_models(
                         X_train = X_train,
                         X_test = X_test,
                         y_train = y_train,
                         y_test = y_test, 
-                        models=models
+                        models = models, 
+                        params = params
             )
 
             ## To get best model score from dict
@@ -71,7 +91,7 @@ class ModelTrainer:
 
             r2_square = r2_score(y_test, predicted)
             logging.info('R2 score is calculated')
-            return r2_square
+            return r2_square, best_model_name
             
         except Exception as e:
             CustomException(e, sys)
